@@ -15,7 +15,9 @@ public class Bullet : MonoBehaviour, IDamageAble {
 
     public void Damage(GameObject other)
     {
-        Die();       
+        if (other.CompareTag("Zombie")) {
+            Die();
+        }              
     }
 
     public void Die()
