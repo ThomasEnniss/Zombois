@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour, IDamageAble {
 	
 	void Start () {
         Destroy(gameObject, 5f);
-	}
+    }
 
-    void OnCollisionEnter(Collision other) {
-        if(other.gameObject.CompareTag("Zombie")){
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
-    }      
+    private void OnCollisionEnter(Collision collision)
+    {
+        Damage(collision.gameObject);
+    }
+
+    public void Damage(GameObject other)
+    {
+        Die();       
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }

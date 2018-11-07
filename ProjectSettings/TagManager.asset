@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Bullet
   - Zombie
+  - ScoreKeeper
+  - Grave
   layers:
   - Default
   - TransparentFX
